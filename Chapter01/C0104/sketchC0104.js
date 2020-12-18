@@ -50,12 +50,22 @@ function draw() {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function addNewParticle() {
+function addNewParticle() 
+{
 	mass.push(random(0.003, 0.03));
 	positionX.push(mouseX);
 	positionY.push(mouseY);
 	velocityX.push(0);
 	velocityY.push(0);
+
+	if(mass.length > 300)
+	{
+		mass.shift();
+		positionX.shift();
+		positionY.shift();
+		velocityX.shift();
+		velocityY.shift();
+	}
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
