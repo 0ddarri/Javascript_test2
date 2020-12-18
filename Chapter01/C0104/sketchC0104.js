@@ -18,7 +18,7 @@ function setup() {
 
 function draw() {
 	background(32);
-	
+	//fill(random(0, 255), random(0, 255), random(0, 255), 192);
 	for (var particleA = 0; particleA < mass.length; particleA++) {
 		var accelerationX = 0, accelerationY = 0;
 		
@@ -28,16 +28,16 @@ function draw() {
 				var distanceY = positionY[particleB] - positionY[particleA];
 
 				var distance = sqrt(distanceX * distanceX + distanceY * distanceY);
-				if (distance < 1) distance = 1;
+				if (distance < 0.5) distance = 0.5;
 
-				var force = (distance - 320) * mass[particleB] / distance;
+				var force = (distance - 200) * mass[particleB] / distance;
 				accelerationX += force * distanceX;
 				accelerationY += force * distanceY;
 			}
 		}
 		
-		velocityX[particleA] = velocityX[particleA] * 0.99 + accelerationX * mass[particleA];
-		velocityY[particleA] = velocityY[particleA] * 0.99 + accelerationY * mass[particleA];
+		velocityX[particleA] = velocityX[particleA] * 0.3 + accelerationX * mass[particleA];
+		velocityY[particleA] = velocityY[particleA] * 0.3 + accelerationY * mass[particleA];
 	}
 	
 	for (var particle = 0; particle < mass.length; particle++) {
