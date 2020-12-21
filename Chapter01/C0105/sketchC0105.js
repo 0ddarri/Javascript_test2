@@ -223,7 +223,7 @@ function Particle(size) {
             if (this.py < 0) this.vy = -this.vy;
         }
     }
-    this.render = function (size) {
+    this.render = function () {
         var distance = getDistance(mouseX, mouseY, this.px, this.py)
         var factor = map(distance, 0, 75, 3, 1)
         let colorRGB = 0;
