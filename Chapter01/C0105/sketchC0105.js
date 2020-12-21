@@ -234,7 +234,7 @@ function Particle(size) {
         var opacity = map(size, 0, 40, 100, 255)
 
         // var opacity = map(size, 0, 100, 3, 1)
-        fill(132, 0, 248, opacity)
+        fill(random(0, 255), 0, 0, opacity)
 
         ellipse(this.px, this.py, size, size);
     }
