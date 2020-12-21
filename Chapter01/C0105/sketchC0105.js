@@ -11,6 +11,7 @@ var oldMouseX = 0
 var oldMouseY = 0
 var count = 0
 
+//let speed = 0;
 //==========================================================
 
 
@@ -225,16 +226,21 @@ function Particle(size) {
     this.render = function (size) {
         var distance = getDistance(mouseX, mouseY, this.px, this.py)
         var factor = map(distance, 0, 75, 3, 1)
-        if (distance >= 75) {
+        if (distance >= 75) 
+        {
             var size = this.size + log(abs(this.vx) * 50)
-        } else {
+            //speed++;
+        } else 
+        {
             clicked = true
             var size = (this.size + log(abs(this.vx) * 50)) * factor
+            //speed--;
         }
         var opacity = map(size, 0, 40, 100, 255)
+        let speed = map(size,0, 70, 150, 255)
 
         // var opacity = map(size, 0, 100, 3, 1)
-        fill(random(0, 255), 0, 0, opacity)
+        fill(speed, 0, 0, opacity)
 
         ellipse(this.px, this.py, size, size);
     }
